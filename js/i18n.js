@@ -1,173 +1,135 @@
-/* ============================================================
-   مُجيب — Bilingual (AR ⇄ EN) engine
-   Arabic is the default in the DOM; English strings live here.
-   Original Arabic content is cached on first run, so toggling
-   back to Arabic restores it exactly.
-   ============================================================ */
 (function () {
   const EN = {
-    // Nav
-    'nav.services': 'Services', 'nav.demo': 'Live Demo', 'nav.why': 'Why Us',
-    'nav.process': 'How It Works', 'nav.pricing': 'Pricing', 'nav.faq': 'FAQ', 'nav.contact': 'Contact',
+    'nav.home': 'Home',
+    'nav.demo': 'Live Demo',
+    'nav.problem': 'The Problem',
+    'nav.solution': 'Why Us',
+    'nav.pricing': 'Pricing',
+    'nav.faq': 'FAQ',
+    'nav.contact': 'Contact',
     'cta.start': 'Get Started',
 
-    // Hero
-    'hero.badge': 'AI for the Arabic Market',
-    'hero.t1': 'Automation that turns', 'hero.t2': 'your business', 'hero.t3': 'into a growth engine',
-    'hero.sub': 'We build custom AI solutions for Arabic businesses —<br />chatbots, automated workflows, and smart integration with your existing systems.',
-    'hero.cta1': 'Book your free consultation', 'hero.cta2': 'See how it works',
-    'hero.trusted': 'Trusted by',
-    'hero.trust1': 'Startups', 'hero.trust2': 'Retail & Commerce', 'hero.trust3': 'Healthcare', 'hero.trust4': 'Financial Services',
-    'hero.dash': 'Mujeeb Dashboard',
-    'hero.m1': 'Chats today', 'hero.m2': 'Response rate', 'hero.m3': 'Leads converted', 'hero.m4': 'Avg. reply',
-    'hero.reply': '1.2s',
-    'hero.activity': 'Chat activity — last 7 days',
-    'hero.d1': 'Sun', 'hero.d2': 'Mon', 'hero.d3': 'Tue', 'hero.d4': 'Wed', 'hero.d5': 'Thu', 'hero.d6': 'Fri', 'hero.d7': 'Sat',
-    'hero.scroll': 'Scroll down',
+    'hero.badge': 'Your smart assistant on WhatsApp and your digital channels',
+    'hero.title': 'Automate conversations<br />that grow <span class="gradient-text">your business</span>',
+    'hero.sub': 'Mujeeb helps you reply, book, and follow up with customers automatically — from the first question to an order or booking.',
+    'hero.ctaDemo': 'See the Demo',
+    'hero.ctaForm': 'Book Your Session',
+    'hero.p1': 'Built for your business.',
+    'hero.p2': 'Prepared for Arabic.',
+    'hero.p3': 'Supervised by your team.',
 
-    // CTA banner
-    'cta.title': "Don't leave a customer waiting",
-    'cta.sub': 'Start today with Mujeeb — it replies, books, and collects your leads while you focus on your business.',
-    'cta.whatsapp': 'WhatsApp', 'cta.demo': 'Book a free demo',
-
-    // Clients
-    'clients.label': 'Trusted by leading brands across the region',
-    'clients.c1': 'Anaqa Store', 'clients.c2': 'TechSouq', 'clients.c3': 'Elite Clinics',
-    'clients.c4': 'Bayt Al Qahwa', 'clients.c5': 'Logistic Pro', 'clients.c6': 'Dar Fashion',
-
-    // Stats
-    'stats.s1': 'Projects delivered', 'stats.s2': 'Client satisfaction',
-    'stats.s3': 'Avg. sales growth', 'stats.s4': 'Support cost saved',
-
-    // Services
-    'services.tag': 'What we offer',
-    'services.title': 'Our core <span class="gradient-text">services</span>',
-    'services.sub': 'We build every solution from scratch to fit your business, your language, and your customers.',
-    'services.s1.t': 'Smart AI Chatbots',
-    'services.s1.p': 'Custom bots that speak formal Arabic and local dialects, understand context, and turn visitors into customers around the clock.',
-    'services.s2.t': 'Workflow Automation',
-    'services.s2.p': 'We eliminate repetitive manual tasks entirely — from processing orders and sending invoices to updating databases automatically, with no human intervention.',
-    'services.s3.t': 'Smart System Integration',
-    'services.s3.p': 'We connect AI to your entire tech stack — ERP, CRM, e-commerce — so data flows seamlessly without interruption.',
-    'svc.f1': 'WhatsApp, Instagram & Website support', 'svc.f2': 'CRM & payment gateway integration',
-    'svc.f3': 'Continuous learning from conversations', 'svc.f4': 'Connect 1000+ apps (Make, Zapier)',
-    'svc.f5': 'Workflows tailored to your industry', 'svc.f6': 'Live monitoring dashboard',
-    'svc.f7': 'SAP, Odoo, Salesforce integration', 'svc.f8': 'Custom, secure APIs', 'svc.f9': '24/7 ongoing technical support',
-    'services.s1.link': 'Build your bot', 'services.s2.link': 'Automate your work', 'services.s3.link': 'Explore possibilities',
-    'services.badge': 'Most popular',
-
-    // Demo
     'demo.tag': 'Live Demo',
-    'demo.title': 'See the bot <span class="gradient-text">in action</span>',
-    'demo.sub': 'This is a real sales bot built for an e-commerce store. The bot understands, replies, and converts — around the clock.',
-    'demo.st1v': '1.2s', 'demo.st1': 'Avg. reply time', 'demo.st2': 'Never stops',
-    'demo.st3v': 'Arabic', 'demo.st3': 'Formal & dialects',
-    'demo.try': 'Try a scenario:', 'demo.sales': 'Sales', 'demo.support': 'Support', 'demo.booking': 'Booking',
-    'demo.waname': 'Mujeeb — Store Assistant', 'demo.online': 'Online now', 'demo.today': 'Today', 'demo.type': 'Type a message...',
+    'demo.title': 'See <span class="gradient-text">Mujeeb</span> in action',
+    'demo.sub': 'This live example shows how Mujeeb helps with replies, qualification, and booking. The idea is simple: the customer asks, and Mujeeb follows up quickly and clearly until the next action is completed.',
+    'demo.st1': 'Average reply time',
+    'demo.st2': 'Always available',
+    'demo.st3': 'Arabic + dialects',
+    'demo.try': 'Try a scenario:',
+    'demo.sales': 'Sales',
+    'demo.support': 'Support',
+    'demo.booking': 'Booking',
+    'demo.waname': 'Mujeeb — Business Assistant',
+    'demo.online': 'Online now',
+    'demo.today': 'Today',
+    'demo.type': 'Type a message...',
 
-    // Why us
-    'why.tag': 'Our edge',
-    'why.title': 'Why <span class="gradient-text">Mujeeb</span>?',
-    'why.sub': "We're not just a service provider — we're a growth partner that understands the Arabic market.",
-    'why.w1.t': 'Understands your dialect', 'why.w1.p': 'Authentic Arabic that understands Gulf and Levantine dialects — no cold machine translation.',
-    'why.w2.t': 'Instant replies', 'why.w2.p': 'Replies anytime — within a second — so no customer is left waiting.',
-    'why.w3.t': 'Easy setup', 'why.w3.p': 'Ready in days. We train it fully on your business and handle the rest.',
-    'why.w4.t': 'Never sleeps', 'why.w4.p': 'Works 24/7 with no holidays or downtime — even while you sleep.',
-
-    // Process
-    'process.tag': 'How It Works',
-    'process.title': 'From idea to <span class="gradient-text">result</span>',
-    'process.sub': 'Four clear steps, no complexity, no surprises.',
-    'process.p1.t': 'Discovery session', 'process.p1.p': 'We sit with you for a full hour to understand your business, challenges, and goals. The session is free with no commitment.', 'process.p1.d': 'One day',
-    'process.p2.t': 'Design & planning', 'process.p2.p': 'We build the full solution map — conversation flows, integration points, and agreed success metrics.', 'process.p2.d': '3 days',
-    'process.p3.t': 'Build & test', 'process.p3.p': 'We build the solution and test it with real questions from your market. We refine until it works at 98%+ accuracy before delivery.', 'process.p3.d': '7-10 days',
-    'process.p4.t': 'Launch & optimize', 'process.p4.p': 'A controlled launch, then continuous improvement based on real conversation data.', 'process.p4.d': 'Ongoing',
-
-    // Problem
     'problem.tag': 'The Problem',
-    'problem.title': "Customers don't wait. A late reply = <span class=\"gradient-text\">a lost deal</span>.",
-    'problem.sub': "Most customers expect a reply within minutes. When you're late, they go straight to your competitor — messages after hours, repeated questions, and unanswered bookings; opportunities leak every day.",
+    'problem.title': 'Customers do not wait. A late reply = <span class="gradient-text">a lost deal</span>.',
+    'problem.sub': 'Most customers expect a reply within minutes. When you are late, they go straight to your competitor — after-hours messages, repeated questions, and unanswered bookings mean opportunities slip away every day.',
     'problem.hl': '5 <span>minutes</span>',
-    'problem.hlp': 'Your window to reply before you lose the customer',
+    'problem.hlp': 'Your response window before you lose the customer',
     'problem.v3': '5 minutes',
     'problem.p1': 'Messages never stop, even after the store closes.',
     'problem.p2': 'of customers deal with whoever replies first.',
-    'problem.p3': 'after which the chance of converting the customer drops sharply.',
+    'problem.p3': 'After that, the chance of conversion drops sharply.',
 
-    // Pricing
+    'solution.tag': 'The Solution',
+    'solution.title': 'Why <span class="gradient-text">Mujeeb</span>?',
+    'solution.sub': 'A small, clear summary of Mujeeb’s value: faster replies, a better Arabic experience, and your team staying in control of important conversations.',
+    'solution.i1.t': 'Arabic done right',
+    'solution.i1.p': 'It handles Arabic clearly and supports a tone that fits your business.',
+    'solution.i2.t': 'Fast replies and follow-up',
+    'solution.i2.p': 'From the first question to the order or booking, the customer keeps moving without delay.',
+    'solution.i3.t': 'With your team in control',
+    'solution.i3.p': 'Whenever a conversation needs human judgment, it is smoothly handed over to your team.',
+
     'pricing.tag': 'Pricing',
-    'pricing.title': 'Invest in <span class="gradient-text">growth</span>',
-    'pricing.sub': 'Clear packages with no hidden fees — pay for results, not for hours.',
+    'pricing.title': 'Clear plans for <span class="gradient-text">different stages</span>',
+    'pricing.sub': '3 plans, clear features, with both monthly and yearly billing.',
     'pricing.monthly': 'Monthly',
-    'pricing.yearly': 'Yearly <span class="save-badge">Save 20%</span>',
-    'pricing.tag1': 'For startups', 'pricing.tag2': 'For scaling businesses', 'pricing.tag3': 'For enterprises & large teams',
+    'pricing.yearly': 'Yearly <b>Save 20%</b>',
+    'pricing.tag1': 'For startups',
+    'pricing.tag2': 'For growing businesses',
+    'pricing.tag3': 'For enterprises and larger teams',
     'pricing.mo': '/mo',
-    'pricing.d1': 'Perfect for a first real experience with automation.',
-    'pricing.d2': 'The complete package for automating sales and support together.',
-    'pricing.d3': 'A solution built from scratch for your needs, with no limits.',
-    'pricing.custom': 'Custom pricing', 'pricing.popular': 'Most chosen',
-    'pf.0': 'One chatbot', 'pf.1': 'Up to 1,000 chats / month', 'pf.2': 'WhatsApp or Website integration',
-    'pf.3': 'Basic analytics dashboard', 'pf.4': 'Support during business hours',
-    'pf.5': 'Workflow automation', 'pf.6': 'CRM / ERP integration',
-    'pf.7': 'Up to 3 chatbots', 'pf.8': 'Up to 10,000 chats / month', 'pf.9': 'WhatsApp + Instagram + Website integration',
-    'pf.10': '3 custom workflow automations', 'pf.11': 'Basic CRM integration', 'pf.12': 'Advanced analytics dashboard', 'pf.13': '24/7 support via WhatsApp',
-    'pf.14': 'Unlimited chatbots', 'pf.15': 'Unlimited chats', 'pf.16': 'Full ERP / SAP / Odoo integration',
-    'pf.17': 'Unlimited workflow automation', 'pf.18': 'Your own private AI models', 'pf.19': 'Guaranteed 99.9% SLA', 'pf.20': 'Dedicated account manager',
-    'pricing.cta1': 'Start free for a week', 'pricing.cta2': 'Book a demo', 'pricing.cta3': 'Talk to our team',
-    'pricing.guarantee': "<strong>14-day</strong> money-back guarantee — if you don't like the solution, we refund everything, no questions asked.",
+    'pricing.d1': 'A practical way to start with Mujeeb.',
+    'pricing.d2': 'For broader automation of replies, follow-up, and booking.',
+    'pricing.d3': 'A flexible setup with wider integrations and more oversight.',
+    'pricing.custom': 'Custom pricing',
+    'pricing.popular': 'Most Popular',
+    'pricing.cta1': 'Start Now',
+    'pricing.cta2': 'Book a Demo',
+    'pricing.cta3': 'Talk to Our Team',
 
-    // Contact
-    'contact.title': 'Ready to transform <span class="gradient-text">your business</span>?',
-    'contact.sub': "Book your free session today. In 30 minutes you'll know exactly how Mujeeb can double your team's efficiency.",
-    'contact.k1': 'A free, no-commitment consultation', 'contact.k2': 'A solution map tailored to your business',
-    'contact.k3': 'A reply within 24 business hours', 'contact.k4': 'No sales pressure — just real solutions',
-    'form.name': 'Full name *', 'form.company': 'Company name', 'form.phone': 'Phone number *',
-    'form.email': 'Email *', 'form.service': 'Service needed', 'form.msg': 'Tell us about your biggest challenge',
-    'form.namePh': 'John Smith', 'form.companyPh': 'Your company', 'form.msgPh': 'What problem do you want to solve?',
-    'form.opt0': 'Choose a service...', 'form.opt1': 'Chatbot', 'form.opt2': 'Workflow automation',
-    'form.opt3': 'System integration', 'form.opt4': 'End-to-end solution',
-    'form.submit': 'Book your free session',
-    'form.note': 'By submitting this form you agree to be contacted via WhatsApp or email.',
-    'form.successT': 'Your request was sent successfully!',
-    'form.successP': 'Our team will contact you within 24 business hours to schedule the session.',
+    'pf.0': 'One chatbot',
+    'pf.1': 'Up to 1,000 conversations / month',
+    'pf.2': 'WhatsApp or website integration',
+    'pf.3': 'Basic analytics dashboard',
+    'pf.7': 'Up to 3 chatbots',
+    'pf.8': 'Up to 10,000 conversations / month',
+    'pf.9': 'WhatsApp + Instagram + website',
+    'pf.12': 'Advanced analytics dashboard',
+    'pf.14': 'Unlimited chatbots',
+    'pf.16': 'ERP / SAP / Odoo integration',
+    'pf.17': 'Advanced workflow automation',
+    'pf.20': 'Dedicated account manager',
 
-    // Footer
-    'footer.brand': 'We empower Arabic businesses to automate their operations with custom AI.',
-    'footer.services': 'Services', 'footer.l1': 'Chatbots', 'footer.l2': 'Workflow automation', 'footer.l3': 'System integration',
-    'footer.company': 'Company', 'footer.about': 'About us', 'footer.whym': 'Why Mujeeb',
-    'footer.direct': 'Direct contact', 'footer.wa': 'Chat with us on WhatsApp', 'footer.region': 'Serving the entire Arab market',
-    'footer.rights': '© 2026 Mujeeb AI. All rights reserved.',
-    'footer.privacy': 'Privacy Policy', 'footer.terms': 'Terms & Conditions',
-
-    // Marquee
-    'mq1': 'Smart AI Chatbots', 'mq2': 'Workflow Automation', 'mq3': 'WhatsApp Integration', 'mq4': 'Full Arabic Support',
-    'mq5': 'Advanced Analytics', 'mq6': 'Two-week Delivery', 'mq7': 'Money-back Guarantee', 'mq8': 'AI Automation',
-
-    // FAQ
     'faq.tag': 'FAQ',
-    'faq.title': 'Everything you <span class="gradient-text">need to know</span>',
-    'faq.sub': 'Straight answers to what our clients ask most before getting started.',
-    'faq.q1': 'How long does it take to launch the bot?',
-    'faq.a1': 'From the discovery session to full launch in 10–14 business days on average, depending on the complexity of the project.',
-    'faq.q2': 'Does the bot understand local dialects?',
-    'faq.a2': 'Yes — it\'s trained on Gulf, Levantine, and Egyptian dialects, and it understands context, not just keywords.',
+    'faq.title': 'Everything you need to <span class="gradient-text">know</span>',
+    'faq.sub': 'Short and clear answers before you get started.',
+    'faq.q1': 'How long does launching the bot take?',
+    'faq.a1': 'From discovery to launch, it usually takes 10–14 business days depending on the project complexity.',
+    'faq.q2': 'Does the bot understand local Arabic dialects?',
+    'faq.a2': 'Yes, and it understands context, not just keywords.',
     'faq.q3': 'Which platforms does it work on?',
-    'faq.a3': 'WhatsApp, Instagram, Messenger, and your website — all from a single dashboard.',
+    'faq.a3': 'WhatsApp and your website, and it can be prepared for other digital channels depending on your needs.',
     'faq.q4': 'Do I need technical experience?',
-    'faq.a4': 'Not at all. We handle setup, training, and integration end-to-end and hand you a ready-to-run solution.',
-    'faq.q5': "What if the bot doesn't know the answer?",
-    'faq.a5': 'It hands the conversation to your team smoothly with full context, so no customer is ever lost.',
-    'faq.q6': 'Is my data secure?',
-    'faq.a6': 'Yes. We follow enterprise-grade security, your data stays fully yours, and it is never used to train public models.',
+    'faq.a4': 'No. We handle setup, training, and integration for you.',
+    'faq.q5': 'What if the bot does not know the answer?',
+    'faq.a5': 'It hands the conversation to your team with the full context.',
 
-    // Floating WhatsApp
-    'wa.float': 'Chat with us on WhatsApp',
+    'contact.title': 'Ready to transform <span class="gradient-text">your business</span>?',
+    'contact.sub': 'Book a short session. We understand what you want to automate and suggest a practical starting point.',
+    'contact.k1': 'A free, no-obligation consultation',
+    'contact.k2': 'A solution map tailored to your business',
+    'contact.k3': 'A reply within 24 business hours',
 
-    // Document
-    'meta.title': 'Mujeeb — AI Business Automation',
+    'form.name': 'Full name *',
+    'form.phone': 'Phone number *',
+    'form.company': 'Company name',
+    'form.email': 'Email *',
+    'form.service': 'Requested service',
+    'form.msg': 'Tell us about your biggest challenge',
+    'form.namePh': 'Mohammad Al-Omari',
+    'form.companyPh': 'Your company',
+    'form.msgPh': 'What would you like to automate?',
+    'form.opt0': 'Choose a service...',
+    'form.opt1': 'Chatbot',
+    'form.opt2': 'Workflow automation',
+    'form.opt3': 'System integration',
+    'form.opt4': 'End-to-end solution',
+    'form.submit': 'Book your free session',
+    'form.note': 'By submitting the form, you agree that we may contact you via WhatsApp or email.',
+    'form.successT': 'Your request has been sent successfully!',
+    'form.successP': 'Our team will contact you within 24 business hours.',
 
-    // Runtime (used by main.js)
-    'form.sending': 'Sending...'
+    'footer.brand': 'We help Arabic businesses automate conversations, customer service, and bookings with more clarity and speed.',
+    'footer.product': 'Product',
+    'footer.direct': 'Direct Contact',
+    'footer.wa': 'Chat with us on WhatsApp',
+    'footer.rights': '© 2026 Mujeeb. All rights reserved.',
+
+    'meta.title': 'Mujeeb — Smart assistant for WhatsApp and your digital channels'
   };
 
   const AR_TITLE = document.title;
@@ -197,14 +159,9 @@
     });
 
     document.title = en ? EN['meta.title'] : AR_TITLE;
-
-    // Toggle button shows the language you can switch TO
-    document.querySelectorAll('.lang-toggle-text').forEach(t => {
-      t.textContent = en ? 'العربية' : 'EN';
-    });
+    document.querySelectorAll('.lang-toggle-text').forEach(t => { t.textContent = en ? 'العربية' : 'EN'; });
 
     try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
-
     listeners.forEach(fn => { try { fn(lang); } catch (e) {} });
   }
 
@@ -212,7 +169,6 @@
     try { return localStorage.getItem(STORAGE_KEY) || 'ar'; } catch (e) { return 'ar'; }
   }
 
-  // Public API for other scripts (e.g. the WhatsApp demo in main.js)
   window.MujeebLang = {
     get current() { return document.documentElement.lang === 'en' ? 'en' : 'ar'; },
     t: function (key) { return this.current === 'en' && EN[key] != null ? EN[key] : null; },
